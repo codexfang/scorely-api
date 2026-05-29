@@ -1,0 +1,257 @@
+{
+  "version": "1.0",
+  "framework": "SOC 2 + ISO 27001",
+  "categories": [
+    "Access Control",
+    "Cryptography",
+    "Data Protection",
+    "Incident Response",
+    "Business Continuity",
+    "Compliance",
+    "Vendor Management",
+    "Physical Security",
+    "Network Security",
+    "Security Awareness"
+  ],
+  "questions": [
+    {
+      "id": "AC-1",
+      "category": "Access Control",
+      "question": "Does your organization enforce role-based access control (RBAC) across all systems?",
+      "answer_type": "boolean",
+      "weight": 1.0,
+      "guidance": "Verify that access permissions are granted based on job function."
+    },
+    {
+      "id": "AC-2",
+      "category": "Access Control",
+      "question": "Are access reviews conducted at least quarterly for all privileged accounts?",
+      "answer_type": "choice",
+      "options": ["yes", "no", "partial"],
+      "weight": 1.0,
+      "guidance": "Quarterly reviews help identify excessive or inappropriate access."
+    },
+    {
+      "id": "AC-3",
+      "category": "Access Control",
+      "question": "Is multi-factor authentication (MFA) enforced for all remote access to internal systems?",
+      "answer_type": "boolean",
+      "weight": 1.2,
+      "guidance": "MFA reduces risk of credential compromise."
+    },
+    {
+      "id": "AC-4",
+      "category": "Access Control",
+      "question": "How would you rate your overall access management maturity on a scale of 1–5?",
+      "answer_type": "scale",
+      "weight": 1.0,
+      "guidance": "1 = ad-hoc, 5 = fully automated with continuous monitoring."
+    },
+    {
+      "id": "CR-1",
+      "category": "Cryptography",
+      "question": "Are all data-in-transit encrypted using TLS 1.2 or higher?",
+      "answer_type": "boolean",
+      "weight": 1.2,
+      "guidance": "TLS ensures confidentiality and integrity during transmission."
+    },
+    {
+      "id": "CR-2",
+      "category": "Cryptography",
+      "question": "Are encryption keys managed using a dedicated key management system (KMS)?",
+      "answer_type": "boolean",
+      "weight": 1.1,
+      "guidance": "Proper key management prevents unauthorized decryption."
+    },
+    {
+      "id": "CR-3",
+      "category": "Cryptography",
+      "question": "Is data-at-rest encrypted for all databases and storage volumes?",
+      "answer_type": "choice",
+      "options": ["in_place", "not_in_place", "partially"],
+      "weight": 1.2,
+      "guidance": "Encryption at rest protects against physical data exposure."
+    },
+    {
+      "id": "DP-1",
+      "category": "Data Protection",
+      "question": "Do you maintain a data classification policy that covers all data assets?",
+      "answer_type": "boolean",
+      "weight": 1.0,
+      "guidance": "Classification enables appropriate handling based on sensitivity."
+    },
+    {
+      "id": "DP-2",
+      "category": "Data Protection",
+      "question": "Are data backups performed daily with off-site or cloud replication?",
+      "answer_type": "choice",
+      "options": ["yes", "no", "partial"],
+      "weight": 1.0,
+      "guidance": "Recovery depends on regular, verifiable backups."
+    },
+    {
+      "id": "DP-3",
+      "category": "Data Protection",
+      "question": "Do you have a data retention and disposal policy in place?",
+      "answer_type": "boolean",
+      "weight": 0.9,
+      "guidance": "Retention schedules reduce legal and compliance risk."
+    },
+    {
+      "id": "DP-4",
+      "category": "Data Protection",
+      "question": "Is data masking or anonymization used for non-production environments?",
+      "answer_type": "boolean",
+      "weight": 0.9,
+      "guidance": "Protects sensitive data from exposure during development."
+    },
+    {
+      "id": "IR-1",
+      "category": "Incident Response",
+      "question": "Does your organization have a documented incident response plan?",
+      "answer_type": "boolean",
+      "weight": 1.2,
+      "guidance": "A formal plan ensures consistent response to security events."
+    },
+    {
+      "id": "IR-2",
+      "category": "Incident Response",
+      "question": "Are incident response drills conducted at least annually?",
+      "answer_type": "choice",
+      "options": ["yes", "no", "partial"],
+      "weight": 1.0,
+      "guidance": "Drills validate that the plan is effective and staff are trained."
+    },
+    {
+      "id": "IR-3",
+      "category": "Incident Response",
+      "question": "Is there a formal process for notifying customers of data breaches within 72 hours?",
+      "answer_type": "boolean",
+      "weight": 1.3,
+      "guidance": "Regulatory requirements often mandate timely breach notification."
+    },
+    {
+      "id": "BC-1",
+      "category": "Business Continuity",
+      "question": "Do you maintain a business continuity plan (BCP) that is reviewed annually?",
+      "answer_type": "boolean",
+      "weight": 1.0,
+      "guidance": "BCP ensures critical operations can continue during disruptions."
+    },
+    {
+      "id": "BC-2",
+      "category": "Business Continuity",
+      "question": "Are disaster recovery tests conducted at least annually with documented results?",
+      "answer_type": "choice",
+      "options": ["yes", "no", "partial"],
+      "weight": 1.1,
+      "guidance": "Testing validates recovery time objectives (RTO) and recovery point objectives (RPO)."
+    },
+    {
+      "id": "CO-1",
+      "category": "Compliance",
+      "question": "Does your organization hold a valid SOC 2 Type II report (issued within the last 12 months)?",
+      "answer_type": "boolean",
+      "weight": 1.3,
+      "guidance": "SOC 2 demonstrates independent validation of controls."
+    },
+    {
+      "id": "CO-2",
+      "category": "Compliance",
+      "question": "Is your organization ISO 27001 certified?",
+      "answer_type": "boolean",
+      "weight": 1.3,
+      "guidance": "ISO 27001 is the international standard for information security management."
+    },
+    {
+      "id": "CO-3",
+      "category": "Compliance",
+      "question": "Do you comply with GDPR requirements for handling personal data of EU residents?",
+      "answer_type": "boolean",
+      "weight": 1.2,
+      "guidance": "GDPR compliance is required when processing EU personal data."
+    },
+    {
+      "id": "VM-1",
+      "category": "Vendor Management",
+      "question": "Do you conduct security assessments of your sub-processors and third-party vendors?",
+      "answer_type": "boolean",
+      "weight": 1.0,
+      "guidance": "Vendor assessments reduce supply chain risk."
+    },
+    {
+      "id": "VM-2",
+      "category": "Vendor Management",
+      "question": "Are contracts with vendors required to include security and confidentiality clauses?",
+      "answer_type": "boolean",
+      "weight": 1.0,
+      "guidance": "Contracts should stipulate security requirements and liability."
+    },
+    {
+      "id": "PS-1",
+      "category": "Physical Security",
+      "question": "Are data centers and server rooms protected by electronic access control systems?",
+      "answer_type": "boolean",
+      "weight": 0.9,
+      "guidance": "Physical access controls prevent unauthorized entry."
+    },
+    {
+      "id": "PS-2",
+      "category": "Physical Security",
+      "question": "Is access to sensitive areas logged and monitored 24/7?",
+      "answer_type": "boolean",
+      "weight": 0.9,
+      "guidance": "Monitoring provides an audit trail of physical access."
+    },
+    {
+      "id": "NS-1",
+      "category": "Network Security",
+      "question": "Is network segmentation implemented to separate production environments from other networks?",
+      "answer_type": "boolean",
+      "weight": 1.2,
+      "guidance": "Segmentation limits the blast radius of a compromise."
+    },
+    {
+      "id": "NS-2",
+      "category": "Network Security",
+      "question": "Are intrusion detection/prevention systems (IDS/IPS) deployed across the network?",
+      "answer_type": "boolean",
+      "weight": 1.1,
+      "guidance": "IDS/IPS provide real-time threat detection and prevention."
+    },
+    {
+      "id": "NS-3",
+      "category": "Network Security",
+      "question": "Is vulnerability scanning performed on all internet-facing systems at least weekly?",
+      "answer_type": "choice",
+      "options": ["yes", "no", "partial"],
+      "weight": 1.1,
+      "guidance": "Regular scanning identifies exploitable weaknesses."
+    },
+    {
+      "id": "SA-1",
+      "category": "Security Awareness",
+      "question": "Do all employees complete security awareness training upon hire and at least annually?",
+      "answer_type": "boolean",
+      "weight": 1.0,
+      "guidance": "Training reduces the risk of human error and social engineering."
+    },
+    {
+      "id": "SA-2",
+      "category": "Security Awareness",
+      "question": "Is phishing simulation testing conducted at least quarterly?",
+      "answer_type": "choice",
+      "options": ["yes", "no", "partial"],
+      "weight": 0.9,
+      "guidance": "Simulations help measure and improve employee vigilance."
+    },
+    {
+      "id": "SA-3",
+      "category": "Security Awareness",
+      "question": "How would you rate your organization's security culture on a scale of 1–5?",
+      "answer_type": "scale",
+      "weight": 0.8,
+      "guidance": "1 = security is not a priority, 5 = security is embedded in all processes."
+    }
+  ]
+}
