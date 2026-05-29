@@ -22,11 +22,13 @@ def generate_og():
         font_path = os.path.join(base_dir, "..", "frontend", "public", "Inter-SemiBold.ttf")
         if not os.path.exists(font_path):
             font_path = "/System/Library/Fonts/Helvetica.ttc"
-        title_font = ImageFont.truetype(font_path, 72)
-        subtitle_font = ImageFont.truetype(font_path, 28)
+        title_font = ImageFont.truetype(font_path, 128)
+        subtitle_font = ImageFont.truetype(font_path, 44)
+        tag_font = ImageFont.truetype(font_path, 32)
     except (IOError, OSError):
         title_font = ImageFont.load_default()
         subtitle_font = ImageFont.load_default()
+        tag_font = ImageFont.load_default()
 
     title = "Scorely"
     subtitle = "Vendor Risk Assessment API"
@@ -35,7 +37,7 @@ def generate_og():
     bbox = draw.textbbox((0, 0), title, font=title_font)
     tw = bbox[2] - bbox[0]
     tx = (W - tw) / 2
-    ty = H // 2 - 60
+    ty = H // 2 - 90
 
     for i, (char, color) in enumerate(zip(title, _gradient_colors(len(title)))):
         draw.text((tx, ty), char, fill=color, font=title_font)
@@ -44,11 +46,11 @@ def generate_og():
 
     sb = draw.textbbox((0, 0), subtitle, font=subtitle_font)
     sw = sb[2] - sb[0]
-    draw.text(((W - sw) / 2, ty + 95), subtitle, fill="#94a3b8", font=subtitle_font)
+    draw.text(((W - sw) / 2, ty + 155), subtitle, fill="#94a3b8", font=subtitle_font)
 
-    tb = draw.textbbox((0, 0), tagline, font=subtitle_font)
+    tb = draw.textbbox((0, 0), tagline, font=tag_font)
     tw2 = tb[2] - tb[0]
-    draw.text(((W - tw2) / 2, ty + 140), tagline, fill="#475569", font=subtitle_font)
+    draw.text(((W - tw2) / 2, ty + 215), tagline, fill="#475569", font=tag_font)
 
     out_path = os.path.join(base_dir, "..", "frontend", "public", "og-image.png")
     img.save(out_path, "PNG")
