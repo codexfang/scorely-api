@@ -42,14 +42,14 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900">
       <Header />
 
       <main className="mx-auto max-w-3xl px-4 py-8">
         {!activeToken ? (
           <div className="space-y-6">
-            <div className="mb-2">
-              <p className="text-sm text-gray-500">
+            <div className="mb-2 mx-1">
+              <p className="text-sm text-slate-500">
                 Create a vendor risk assessment to generate a security questionnaire,
                 collect responses, and calculate a risk score.
               </p>
@@ -68,22 +68,18 @@ export default function App() {
             <div className="flex items-center gap-3">
               <button
                 onClick={handleBack}
-                className="rounded-md border border-gray-700 px-3 py-1.5 text-xs text-gray-400 hover:bg-gray-800 transition-colors"
+                className="rounded-lg border border-slate-700 bg-slate-800/50 px-3 py-1.5 text-xs text-slate-400 transition-all hover:bg-slate-700/50 hover:text-white"
               >
                 &larr; Back
               </button>
-              <div className="font-mono text-xs text-gray-600 truncate">
-                Token: {activeToken}
+              <div className="font-mono text-xs text-slate-600 truncate">
+                {activeToken.slice(0, 8)}...{activeToken.slice(-4)}
               </div>
             </div>
             <Questionnaire token={activeToken} />
             <ScoreCard token={activeToken} />
           </div>
         )}
-
-        <footer className="mt-12 border-t border-gray-800 pt-6 text-center text-xs text-gray-700">
-          Scorely API &mdash; Vendor Risk Assessment Platform
-        </footer>
       </main>
     </div>
   )
