@@ -56,8 +56,7 @@ export default function App() {
           <div className="space-y-6">
             <div className="mb-2 mx-1">
               <p className="text-sm text-slate-500">
-                Create a vendor risk assessment to generate a security questionnaire,
-                collect responses, and calculate a risk score.
+                Create a vendor risk assessment to generate a security questionnaire and calculate a risk score.
               </p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2">
