@@ -27,14 +27,9 @@ export default function CreateAssessment({ onCreated }) {
 
   return (
     <div className="rounded-xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 p-6 shadow-lg shadow-black/20">
-      <div className="mb-5 flex items-center gap-2">
-        <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-cyan-500 to-violet-600 text-xs font-bold text-white shadow-sm">
-          +
-        </div>
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
-          New Assessment
-        </h2>
-      </div>
+      <h2 className="mb-5 text-sm font-semibold uppercase tracking-wider text-slate-400">
+        New Assessment
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="mb-1.5 block text-xs font-medium text-slate-400">

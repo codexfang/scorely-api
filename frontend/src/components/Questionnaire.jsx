@@ -80,7 +80,7 @@ function AnswerInput({ question, value, onChange }) {
   return null
 }
 
-export default function Questionnaire({ token }) {
+export default function Questionnaire({ token, onSubmitted }) {
   const [questions, setQuestions] = useState([])
   const [answers, setAnswers] = useState({})
   const [notes, setNotes] = useState({})
@@ -154,8 +154,10 @@ export default function Questionnaire({ token }) {
       }))
       await submitAnswers(token, answerList)
       setSubmitted(true)
+      if (onSubmitted) onSubmitted()
     } catch {
       setSubmitted(true)
+      if (onSubmitted) onSubmitted()
     } finally {
       setSubmitting(false)
     }
@@ -183,11 +185,6 @@ export default function Questionnaire({ token }) {
   if (submitted) {
     return (
       <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-b from-emerald-950/30 to-slate-950 p-8 text-center shadow-lg shadow-black/20">
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/30">
-          <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
         <p className="text-lg font-semibold text-emerald-400">Answers Submitted</p>
         <p className="mt-1 text-sm text-slate-500">
           Your responses have been recorded. View your risk score below.
@@ -207,14 +204,9 @@ export default function Questionnaire({ token }) {
   return (
     <div className="rounded-xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 p-6 shadow-lg shadow-black/20">
       <div className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-cyan-500 to-violet-600 text-xs font-bold text-white shadow-sm">
-            Q
-          </div>
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
-            Questionnaire
-          </h2>
-        </div>
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+          Questionnaire
+        </h2>
         <div className="flex items-center gap-3">
           <span className="text-xs text-slate-500">
             <span className="text-cyan-400">{answered}</span>/{total}

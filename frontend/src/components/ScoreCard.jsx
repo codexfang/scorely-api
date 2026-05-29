@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getScore, getFallbackScore, getReportUrl } from '../services/api'
+import { getScore, getReportUrl } from '../services/api'
 
 function RiskBadge({ level }) {
   const styles = {
@@ -69,11 +69,11 @@ export default function ScoreCard({ token }) {
   useEffect(() => {
     async function load() {
       try {
-        const data = await getScore(token)
-        setScoreData(data.score)
-      } catch {
-        setScoreData(getFallbackScore())
-      } finally {
+      const data = await getScore(token)
+      setScoreData(data.score)
+    } catch (e) {
+      setError(e.message || 'Failed to load score')
+    } finally {
         setLoading(false)
       }
     }
@@ -108,14 +108,9 @@ export default function ScoreCard({ token }) {
   return (
     <div className="rounded-xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 p-6 shadow-lg shadow-black/20">
       <div className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className={`flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br ${gaugeColor} text-xs font-bold text-white shadow-sm`}>
-            S
-          </div>
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
-            Risk Score
-          </h2>
-        </div>
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+          Risk Score
+        </h2>
         <RiskBadge level={scoreData.risk_level} />
       </div>
 

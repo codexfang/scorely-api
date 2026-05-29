@@ -9,6 +9,7 @@ import { getStoredTokens, storeToken, removeToken } from './services/storage'
 export default function App() {
   const [tokens, setTokens] = useState([])
   const [activeToken, setActiveToken] = useState(null)
+  const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
     setTokens(getStoredTokens())
@@ -38,7 +39,12 @@ export default function App() {
 
   function handleBack() {
     setActiveToken(null)
+    setSubmitted(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  function handleSubmitted() {
+    setSubmitted(true)
   }
 
   return (
@@ -76,8 +82,8 @@ export default function App() {
                 {activeToken.slice(0, 8)}...{activeToken.slice(-4)}
               </div>
             </div>
-            <Questionnaire token={activeToken} />
-            <ScoreCard token={activeToken} />
+            <Questionnaire token={activeToken} onSubmitted={handleSubmitted} />
+            {submitted && <ScoreCard token={activeToken} />}
           </div>
         )}
       </main>
