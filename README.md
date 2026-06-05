@@ -37,6 +37,4 @@ The risk scoring engine works as follows:
 5. Risk levels: **Low** (0–29), **Medium** (30–59), **High** (60–100)
 6. Recommendations are generated based on each category's score
 
-## License
 
-MIT
